@@ -17,7 +17,8 @@ hr {
 
 /* nav */
 .nav-img {
-  width: 150px;
+  /* width: 150px; */
+  height: 120px;
 }
 
 .navbar {
@@ -90,6 +91,13 @@ hr {
   color: white;
 }
 
+
+@media (max-width: 991px) {
+  .nav-img{
+    height: 80px;
+  }
+}
+
 @media (max-width: 392px) {
   .container {
     padding: none;
@@ -97,5 +105,9 @@ hr {
 
   .card-text {
     width: auto;
+  }
+
+  .nav-img{
+    height: 50px;
   }
 }
