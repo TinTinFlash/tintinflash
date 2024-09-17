@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXO LOVE FOOL</title>
+    <link rel="stylesheet" href="./css/loading.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <script>
+        function toggleAudio() {
+            var audio = document.getElementById("bg-music");
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <img src="./img/wall-10.jpg" alt="" class="wall">
+    <audio id="bg-music" loop>
+        <source src="./music/exo-love-fool.mp3" type="audio/mpeg">
+    </audio>
+    <div class="container">
+        <div class="exo">EXO - LOVE FOOL</div>
+        <div class="cloud-1"></div>
+        <div class="cloud-1-1"></div>
+        <div class="cloud-1-2"></div>
+        <div class="cloud-1-3"></div>
+        <div class="cloud-1-4"></div>
+        <div class="cloud-1-5"></div>
+        <div class="cloud-1-6"></div>
+        <div class="cloud-1-7"></div>
+        <div class="cloud-1-8"></div>
+
+        <!-- <div class="album-cover">
+            <img src="./img/white.jpg" alt="" class="img-cover">
+        </div> -->
+
+        <div class="album-inside">
+            <div class="text">點擊CD收聽曲目 :D</div>
+
+            <div class="album-buttom"></div>
+            <button onclick="toggleAudio()">
+                <div class="cd">
+                    <img src="./img/fire-2.jpg" alt="" class="img-cd">
+                    <div class="light-1"></div>
+                    <div class="light-2"></div>
+                </div>
+            </button>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

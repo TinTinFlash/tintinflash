@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>醫院掛號系統</title>
+    <style>
+        body {
+            background-color: #eee;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: sans-serif;
+            color: #393939;
+        }
+
+        .title {
+            margin-bottom: 5px;
+        }
+
+        .title-1 {
+            margin-top: 10px;
+        }
+
+        .title-info {
+            font-weight: 400;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            background-color: #fff;
+            box-shadow: 0 0 20px #b9b9b9;
+            border-radius: 10px;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 32px;
+        }
+
+        .area {
+            /* background-color: cornflowerblue; */
+            width: 80%;
+            box-sizing: border-box;
+            border: 3px solid #b9b9b9;
+            border-radius: 10px;
+            font-weight: 600;
+
+        }
+
+        .area>div {
+            width: 80%;
+            margin: auto;
+            padding: 15px 20px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .nobody {
+            display: flex;
+            justify-content: center;
+            font-weight: 400;
+            text-align: center;
+            color: #7d7d7d;
+        }
+
+        .patient-info {
+            width: 80%;
+            /* background-color: aqua; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            font-weight: 600;
+        }
+
+        .info {
+            display: flex;
+            width: 100%;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+
+        .info label {
+            width: 110px;
+            text-align: left;
+            padding-right: 6px;
+            flex-shrink: 0;
+        }
+
+        .content {
+            height: 30px;
+            border-radius: 10px;
+            border: 2px solid #b9b9b9;
+        }
+
+        #patientName,
+        #idNumber,
+        #patientType {
+            flex-grow: 1;
+            margin-bottom: 0;
+        }
+
+        .btn {
+            /* width: 50%; */
+            /* height: 30px; */
+            padding: 10px 50px;
+            border-radius: 10px;
+            border: none;
+            font-weight: 600;
+            background-color: #393939;
+            color: #fff;
+        }
+
+        .btn:hover {
+            box-shadow: 0 0 10px #b9b9b989;
+            transform: scale(1.02);
+        }
+
+        #call-btn {
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        hr {
+            width: 90%;
+            margin: 0;
+            border: 1px solid #b9b9b9;
+            margin-top: 5px;
+        }
+
+        .call-area {
+            width: 80%;
+            /* background-color: rgb(120, 163, 163); */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            padding-top: 0;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>看診進度</h2>
+        <section class="area">
+            <div><span class="nobody">當前無患者掛號</span></div>
+        </section>
+        <!-- <hr> -->
+        <section class="patient-info">
+            <h2 class="title title-1">患者掛號資訊</h2>
+            <span class="title-info">請輸入以下資訊，且勿重複掛號</span>
+            <div class="info">
+                <label for="patientName">患者姓名　 ：</label>
+                <input class="content" type="text" id="patientName" placeholder="請輸入姓名">
+            </div>
+            <div class="info">
+                <label for="idNumber">身份證字號 ：</label>
+                <input class="content" type="text" id="idNumber" placeholder="請輸入身份證字號">
+            </div>
+            <div class="info">
+                <label for="patientType">看診身份　 ：</label>
+                <select class="content" id="patientType" name="patientType">
+                    <option value="01">一般身份患者</option>
+                    <option value="02">持有本院 VIP 證患者</option>
+                    <option value="03">本院醫師開立特殊身份患者</option>
+                </select>
+            </div>
+            <button type="button" id="go-btn" class="btn">掛　號</button>
+        </section>
+        <hr>
+        <section class="call-area">
+            <h2 class="title">院方叫號</h2>
+            <span class="title-info">按下叫號按鈕呼叫患者至診間報到</span>
+            <button type="button" id="call-btn" class="btn">叫　號</button>
+        </section>
+    </div>
+
+    <script>
+        // 1.陣列運用插值
+        // 需求說明：
+        // 1.每次掛號的人會顯示在畫面上
+        // 2.有三種方式可以掛號（一般身份、ＶＩＰ、特殊身份）
+        // 3.優先的看診順序為（一般身份 < ＶＩＰ < 特殊身份）
+        // 4.叫號碼後，會將看診的人用其他顏色標註
+        let arraycontent = [];
+        let lastCalledIndex = -1;
+
+        // 掛個號
+        let go_btn = document.querySelector('#go-btn');
+        go_btn.addEventListener('click', function () {
+            // console.log('有點到');
+
+            let patientName = document.querySelector('#patientName');
+            let idNumber = document.querySelector('#idNumber');
+            let patientType = document.querySelector('#patientType');
+
+            // 檢查兩個輸入欄位是否都有值
+            if (patientName.value.trim() === '' || idNumber.value.trim() === '') {
+                // 如果沒有填寫完整，就不繼續執行
+                alert('請填寫患者姓名和身份證字號！');
+                return;
+            }
+
+            // 檢查是否已經存在相同的患者資料
+            let isDuplicate = arraycontent.some(item => item.name === patientName.value && item.id === idNumber.value);
+
+            if (isDuplicate) {
+                // 如果已經存在，就不繼續執行
+                alert('此患者已經掛號，請勿重複填寫！');
+                return;
+            }
+
+            // 根據患者類型設置優先級
+            let priority;
+            switch (patientType.value) {
+                // 特殊身份
+                case '03': priority = 3; break;
+                // VIP
+                case '02': priority = 2; break;
+                // 一般身份
+                default: priority = 1;
+            }
+
+            let newPatient = {
+                name: patientName.value,
+                id: idNumber.value,
+                // 上方設定的患者優先級
+                priority: priority,
+                // 初始設置為 false，表示該患者尚未被叫號
+                called: false,
+                // 添加時間戳，表示掛號的具體時間
+                timestamp: Date.now()
+            };
+
+            // 找到最後一個相同優先級的未叫號患者的索引
+            let insertIndex = arraycontent.findIndex((patient, index) => {
+                return index > lastCalledIndex && patient.priority < priority;
+            });
+
+            if (insertIndex === -1) {
+                // 如果沒有找到合適的位置，就插入到數組末尾
+                insertIndex = arraycontent.length;
+            }
+
+            // 在已叫號患者之後插入新患者
+            // arraycontent.splice(start = 開始改變的位置, deleteCount = 指定要刪除的元素數量，如果是 0，表示不刪除元素, item1 = 指定要插入的新元素, item2 = 同item1, ...);
+            arraycontent.splice(insertIndex, 0, newPatient);
+
+            showcontent();
+
+            // 清空輸入欄位
+            patientName.value = '';
+            idNumber.value = '';
+            patientType.value = '01';
+
+            // 顯示掛號成功的訊息
+            alert('掛號成功！');
+        });
+
+        // 把重複的事情做成一個方法(掛號)
+        function showcontent() {
+            let area = document.querySelector('.area');
+            area.innerHTML = '';
+
+            if (arraycontent.length === 0) {
+                area.innerHTML = '<div><span class="nobody">當前無患者掛號</span></div>';
+                return;
+            }
+
+            // 設最大編號到999
+            arraycontent.forEach((item, index) => {
+                // index會從0開始算所以要 + 1
+                let number = Math.
+                    // min = 比較兩個值：index + 1 和 999
+                    min(index + 1, 999)
+                    // .toString() 將數字轉換為字符串
+                    .toString()
+                    // .padStart(3, '0') 是一個字符串方法，它確保字符串至少有3個字符長，如果少於3個字符，就在開頭填充 '0'
+                    .padStart(3, '0');
+                let color = item.called ? '#ce2121' : '#393939'; // 根據是否叫號設置顏色
+                let status = item.called ? '已叫號' : '';
+                area.innerHTML += `<div style="color: ${color};">${number}. ${item.name} ${status}</div>`;
+            });
+        }
+
+        // 添加叫號功能
+        let call_btn = document.querySelector('#call-btn');
+        call_btn.addEventListener('click', function () {
+            if (lastCalledIndex < arraycontent.length - 1) {
+                lastCalledIndex++;
+                arraycontent[lastCalledIndex].called = true;
+                showcontent();
+            } else if (arraycontent.length > 0) {
+                // 返回無患者狀態
+                alert('所有患者皆已經叫號完畢，辛苦啦，下班囉！');
+                resetSystem();
+            } else {
+                alert('目前無患者等待叫號');
+            }
+        });
+
+        // 返回無患者狀態
+        function resetSystem() {
+            arraycontent = [];
+            lastCalledIndex = -1;
+            showcontent();
+        }
+
+        // 初始化顯示
+        showcontent();
+
+    </script>
+
+</body>
+
+</html>

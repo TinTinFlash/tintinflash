@@ -1,0 +1,139 @@
+/* tintinflash */
+.carousel-img {
+  /* height: 500px; */
+  aspect-ratio: 21/9;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+h2,
+h4 {
+  color: #f73c74;
+  font-weight: 600;
+}
+
+.six-left {
+  position: relative;
+  width: 50%;
+}
+
+.six-left-1 {
+  position: relative;
+  width: 100%;
+}
+
+.six-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.six-img-left-top{
+  border-top-left-radius: 30px;
+}
+
+.six-img-right-bottom{
+  border-bottom-right-radius: 30px;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 170, 196, 0.8);
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.text {
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.six-left:hover .overlay {
+  height: 100%;
+}
+
+.six-left-1:hover .overlay {
+  height: 100%;
+}
+
+.four-card {
+  background-color: white;
+  box-shadow: 0 0 10px #eee;
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.four-card:hover {
+  transform: scale(1.1);
+}
+
+.card-img-top {
+  border-top-left-radius: 30px;
+}
+
+.card-title {
+  font-weight: 600;
+}
+
+.back-btn-text {
+  color: #f73c74;
+}
+
+.back-btn-text:hover{
+transform: translate(10px, 0);
+}
+
+.next-btn-btn {
+  background-color: #f73c74;
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.next-btn-btn:hover {
+  background-color: #ffaac3;
+}
+
+.next-btn-text {
+  color: white;
+  font-weight: 600;
+}
+
+.next-btn-btn:hover .next-btn-text {
+  color: #f73c74;
+}
+
+.learn-img{
+  border: 1px solid #eee;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 30px;
+}
+
+.about_me {
+  background: white;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 30px;
+  box-shadow: 0 0 30px #eeeeee;
+}
+
+.about-me-text{
+  text-align: justify;
+}

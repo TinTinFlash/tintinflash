@@ -1,0 +1,27 @@
+h2 {
+  color: #f73c74;
+  font-weight: 600;
+}
+
+h5{
+  font-weight: 600;
+}
+
+.nav-text{
+  font-weight: 600;
+}
+
+.four-card {
+  background-color: white;
+  box-shadow: 0 0 10px #eee;
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.four-card:hover {
+  transform: scale(1.1);
+}
+
+.card-img-top {
+  border-top-left-radius: 30px;
+}

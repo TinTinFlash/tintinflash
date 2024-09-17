@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圖片滾動效果 + 區域選擇運用</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        a {
+            /* 底線樣式 */
+            text-decoration: none;
+            color: rgb(209, 85, 126);
+        }
+
+        .nav {
+            width: calc(80% - 10px * 2);
+            height: calc(80px - 10px * 2);
+            /* 有padding 記得扣掉 */
+            padding: 10px;
+            position: fixed;
+            left: 10%;
+            z-index: 9;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            background-image: url(./img-webarebears/logo-2.jpg);
+            background-size: cover;
+            border-radius: 50%;
+            float: left;
+        }
+
+        /* hover 鼠標旋停時的特效 */
+        .logo:hover {
+            /* 加上特效 */
+            /* 縮放大小 */
+            /* 一樣的指令後面會蓋掉前面，所以要寫在一起 */
+            /* 旋轉(以軸旋轉 = 鏡像旋轉) */
+            transform: scale(1.1) rotateY(180deg);
+            box-shadow: 0 3px 10px rgba(47, 47, 47, 0.4);
+        }
+
+        .nav-btn-all {
+            height: 60px;
+            float: right;
+        }
+
+        .nav-btn {
+            width: 80px;
+            height: 40px;
+            background-color: pink;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 43px;
+            border-radius: 10px;
+            float: left;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        .nav-btn:hover {
+            background-color: rgb(255, 255, 255);
+            color: palevioletred;
+            font-size: 28px;
+            transform: scale(1.1);
+            box-shadow: 0 3px 10px rgba(47, 47, 47, 0.4);
+        }
+
+        .nav-btn:active,
+        .go-top:active {
+            background-color: rgb(42, 112, 165);
+            color: white;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+
+        .banner {
+            width: 100%;
+            height: 50vh;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            /* padding-top = 讓透明黑塊掉下去 */
+            padding-top: 50vh;
+        }
+
+        #banner-1 {
+            background-image: url(./img-webarebears/img-1.jpg);
+
+        }
+
+        #banner-2 {
+            background-image: url(./img-webarebears/img-2.png);
+        }
+
+        #banner-3 {
+            background-image: url(./img-webarebears/img-3.jpg);
+        }
+
+        .mask {
+            background-color: black;
+            width: 100%;
+            height: 50vh;
+            opacity: 0.5;
+            position: relative;
+        }
+
+        .btn {
+            background-color: white;
+            width: 100px;
+            height: 50px;
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 54px;
+            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .go-top {
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: rgb(255, 198, 198);
+            border-radius: 50%;
+            position: fixed;
+            right: 15px;
+            bottom: 15px;
+        }
+
+        .go-top:hover {
+            background-color: rgb(255, 255, 255);
+            color: palevioletred;
+            font-size: 28px;
+            transform: scale(1.1);
+            box-shadow: 0 3px 10px rgba(47, 47, 47, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 1.導覽列(透明))
+    a.左方 logo
+    b.右方按鈕區(3顆按鈕)
+    c.按鈕按了之後到各區 -->
+    <!-- 2.內容3區 
+    a.圖片
+    b.mask下半部
+    c.小方塊(標示1區、2區、3區)-->
+    <div class="nav">
+        <div class="logo"></div>
+        <div class="nav-btn-all">
+            <!-- a = 錨點(anchor) -->
+            <!-- href = 超連結(hyperlink refrence) 放置要連結的位置
+            可以url or 目錄 -->
+            <!-- <a href=""></a> = 超連結 -->
+            <a href="#banner-1" class="nav-btn nav-btn-1">一區</a>
+            <a href="#banner-2" class="nav-btn nav-btn-2">二區</a>
+            <a href="#banner-3" class="nav-btn nav-btn-3">三區</a>
+            <!-- 快捷輸入 = .nav-btn.nav-btn-*3 -->
+        </div>
+    </div>
+    <!-- container = 內容、容器 -->
+    <div class="container">
+        <!-- 快捷輸入 = #banner-.banner -->
+        <div id="banner-1" class="banner">
+            <div class="mask">
+                <div class="btn">一區</div>
+            </div>
+        </div>
+        <div id="banner-2" class="banner">
+            <div class="mask">
+                <div class="btn">二區</div>
+            </div>
+        </div>
+        <div id="banner-3" class="banner">
+            <div class="mask">
+                <div class="btn">三區</div>
+            </div>
+        </div>
+    </div>
+    <!-- 回到頂端 -->
+    <a href="#" class="go-top">Top</a>
+
+
+</body>
+
+</html>

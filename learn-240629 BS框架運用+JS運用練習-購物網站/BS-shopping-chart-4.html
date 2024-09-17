@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TinTinFlash Co.-完成訂購</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- 加網站logo在網頁 -->
+    <link rel="icon" href="./img/logo-02.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/BS-shopping-chart-4.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-white mb-5">
+        <div class="container-fluid">
+            <a class="navbar-brand mx-3" href="./BS-store.html"><img class="nav-img" src="./img/logo-02.svg" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-h active text-center" aria-current="page"
+                            href="./BS-store.html">Home</a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a class="nav-link nav-link-h" href="#">Portfolio</a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a class="nav-link nav-link-h" href="#">About</a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a class="nav-link nav-link-h" href="#">Contact</a>
+                    </li>
+                    <div class="row text-center">
+                        <div class="col-lg-3 col-6">
+                            <li class="nav-item">
+                                <a class="nav-link" href="./BS-shopping-chart-1.html"><i class="bi bi-cart4"></i></a>
+                            </li>
+                        </div>
+                        <div class="col">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <i class="bi bi-person-circle"></i>
+                                </a>
+                                <ul id="login" class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="./login.html">Login</a></li>
+                                </ul>
+                            </li>
+                        </div>
+
+                    </div>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container w-md-100 w-none-100 p-5 mb-5">
+        <h2 class="mb-4">購物車</h2>
+        <div class="row mb-4">
+            <div class="col-3 pbar-box">
+                <div class="row">
+                    <div class="progress progress-1" role="progressbar" aria-label="Basic example" aria-valuenow="25"
+                        aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar" style="width: 0%"></div>
+                    </div>
+                    <div class="pbar-circle pbar-circle-1 rounded-circle col-12 m-auto mb-3 text-center">
+                        <p class="pbar-circle-text text-center">1</p>
+                    </div>
+                    <div class="pbar-text pbar-text-1 col-12 m-auto text-center">
+                        確認購物車
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 pbar-box">
+                <div class="row">
+                    <div class="progress progress-1" role="progressbar" aria-label="Basic example" aria-valuenow="25"
+                        aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar" style="width: 40%"></div>
+                    </div>
+                    <div class="pbar-circle pbar-circle-1 rounded-circle col-12 m-auto mb-3 text-center">
+                        <p class="pbar-circle-text text-center">2</p>
+                    </div>
+                    <div class="pbar-text pbar-text-1 col-12 m-auto text-center">
+                        付款與運送方式
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 pbar-box">
+                <div class="row">
+                    <div class="progress progress-1" role="progressbar" aria-label="Basic example" aria-valuenow="25"
+                        aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar" style="width: 40%"></div>
+                    </div>
+                    <div class="pbar-circle pbar-circle-1 rounded-circle col-12 m-auto mb-3 text-center">
+                        <p class="pbar-circle-text text-center">3</p>
+                    </div>
+                    <div class="pbar-text pbar-text-1 col-12 m-auto text-center">
+                        填寫資料
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 pbar-box">
+                <div class="row">
+                    <div class="pbar-circle pbar-circle-1 rounded-circle col-12 m-auto mb-3 text-center">
+                        <p class="pbar-circle-text text-center">4</p>
+                    </div>
+                    <div class="pbar-text pbar-text-1 col-12 m-auto text-center">
+                        完成訂購
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <h2 class="mb-3">訂單明細</h2>
+        <div class="row">
+            <div class="col-9 col-sm-8">
+                <div class="row ">
+                    <div class="card-circle col-4 my-auto">
+                        <img class="w-100 rounded-circle" src="./img/white.jpg" alt="">
+                    </div>
+                    <div class="col my-auto exo-text">
+                        <h4 class=" exo-text-1">EXO / EXIST</h4>
+                        <p class="exo-text-2 mb-0">(Photo Book Ver.)
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 col-sm-4 my-auto">
+                <div class="row ">
+                    <div class="col my-auto">
+                        <p class=" text-end mb-0">x<span id="quantity01">1</span></p>
+                    </div>
+                    <div class="col my-auto text-end">
+                        <p id="price01" class="mb-0  exo-text-3">NT.1190</p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-9 col-sm-8">
+                <div class="row ">
+                    <div class="card-circle col-4 my-auto">
+                        <img class="w-100 rounded-circle" src="./img/light.jpg" alt="">
+                    </div>
+                    <div class="col my-auto exo-text">
+                        <h4 class=" exo-text-1">EXO / EXIST</h4>
+                        <p class="exo-text-2 mb-0">(SMini Ver.)
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 col-sm-4 my-auto">
+                <div class="row ">
+                    <div class="col my-auto">
+                        <p class=" text-end mb-0">x<span id="quantity02">1</span></p>
+                    </div>
+                    <div class="col my-auto text-end">
+                        <p id="price02" class="mb-0  exo-text-3">NT.412</p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-9 col-sm-8">
+                <div class="row ">
+                    <div class="card-circle col-4 my-auto">
+                        <img class="w-100 rounded-circle" src="./img/fire-2.jpg" alt="">
+                    </div>
+                    <div class="col my-auto exo-text">
+                        <h4 class=" exo-text-1">EXO / EXIST</h4>
+                        <p class="exo-text-2 mb-0">(Digipack Ver.)
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 col-sm-4 my-auto">
+                <div class="row ">
+                    <div class="col my-auto">
+                        <p class=" text-end mb-0">x<span id="quantity03">1</span></p>
+                    </div>
+                    <div class="col my-auto text-end">
+                        <p id="price03" class=" mb-0 exo-text-3">NT.836</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <h2 class="mb-3">寄送資料</h2>
+        <p id="name">姓名 : 黃小姐玉米起司</p>
+        <p id="phone_number">電話 : 0911210905</p>
+        <p id="email">Email : weareone1485@gmail.com</p>
+        <p id="address">地址 : 510 彰化縣洞爺市萬事路9547號</p>
+        <hr>
+        <div class="row text-end mx-auto mb-3 p-0">
+            <div class="col">
+                <p>數量</p>
+                <p>小計</p>
+                <p>運費</p>
+                <p class="mb-0 tatal-text">總計</p>
+            </div>
+            <div class="col-4 col-xl-2">
+                <p id="show_number_all">3</p>
+                <p id="show_price01_all">NT.2438</p>
+                <p>免運</p>
+                <p id="show_price02_all" class="mb-0 tatal-text">NT.2438</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="next-btn col-12 text-end my-auto mb-2">
+                <a href="./BS-store.html">
+                    <button type="button" class="next-btn-btn btn btn-lg px-5 ">
+                        <p class="next-btn-text mb-0">返回首頁</p>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </main>
+    <footer class="container-fluid bg-white">
+
+        <div class="row p-4">
+            <div class="col-12 col-sm-4 col-md-4 col-lg-2 text-center">
+                <a class="navbar-brand mx-2" href="#"><img class="nav-img m-2" src="./img/logo-02.svg" alt=""></a>
+            </div>
+            <p class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 my-auto text-center footer-text ">That's Right My
+                Tight :D</p>
+            <div class="col-12 col-sm-2 text-center p-3">
+                <div class="row">
+                    <div class="col">
+                        <p class="footer-nav-text-1">歷代專輯</p>
+                        <p class="mb-0">正規七輯</p>
+                        <p class="mb-0">正規六輯</p>
+                        <p class="mb-0">正規五輯</p>
+                        <p class="mb-0">正規四輯</p>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-12 col-sm-2 text-center p-3">
+                <div class="row">
+                    <div class="col">
+                        <p class="footer-nav-text-1">成員介紹</p>
+                        <p class="mb-0">吳世勳</p>
+                        <p class="mb-0">金鍾仁</p>
+                        <p class="mb-0">邊伯賢</p>
+                        <p class="mb-0">We Are One</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-2 text-center p-3">
+                <div class="row">
+                    <div class="col">
+                        <p class="footer-nav-text-1">晚餐推薦</p>
+                        <p class="mb-0">菲力牛排</p>
+                        <p class="mb-0">沙朗牛排</p>
+                        <p class="mb-0">翼板牛排</p>
+                        <p class="mb-0">肋眼牛排</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-2 text-center p-3">
+                <div class="row">
+                    <div class="col">
+                        <p class="footer-nav-text-1">甜點精選</p>
+                        <p class="mb-0">戚風蛋糕</p>
+                        <p class="mb-0">千層蛋糕</p>
+                        <p class="mb-0">融心布朗尼</p>
+                        <p class="mb-0">薄巧冰淇淋</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <div class="footer-nav container-fluid p-3">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 ">
+                <div class="row mx-3">
+                    <a class="col-2 my-auto text-end" href="#"><i class="bi bi-c-circle"></i></a>
+                    <p class="col my-auto p-0 footer-nav-text">2024 TinTinFlash Co.</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6">
+                <div class="row mx-3">
+                    <a class="col-2 my-auto text-end" href="#"><i class="bi bi-at"></i></a>
+                    <p class="col my-auto p-0 footer-nav-text">tintinflash_1121</p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // 第三頁的寄送資料
+            // 從 localStorage 獲取寄送資料
+            let name = localStorage.getItem('name');
+            let phone = localStorage.getItem('phone');
+            let email = localStorage.getItem('email');
+            let addressNumber = localStorage.getItem('address_number');
+            let address01 = localStorage.getItem('address01');
+            let address02 = localStorage.getItem('address02');
+
+            // 更新頁面上的寄送資料
+            if (name) document.getElementById('name').textContent = '姓名 : ' + name;
+            if (phone) document.getElementById('phone_number').textContent = '電話 : ' + phone;
+            if (email) document.getElementById('email').textContent = 'Email : ' + email;
+            if (addressNumber && address01 && address02) {
+                document.getElementById('address').textContent = '地址 : ' + addressNumber + ' ' + address01 + ' ' + address02;
+            }
+
+             // 下方商品明細
+            // 獲取 localStorage 中存儲的數據
+            let totalNumber = localStorage.getItem('showNumberAll');
+            let totalPrice = localStorage.getItem('showPrice01All');
+            let totalPriceWithShipping = localStorage.getItem('showPrice02All');
+
+            // 更新總數和總價
+            if (totalNumber && totalPrice && totalPriceWithShipping) {
+                document.getElementById('show_number_all').textContent = totalNumber;
+                document.getElementById('show_price01_all').textContent = totalPrice;
+                document.getElementById('show_price02_all').textContent = totalPriceWithShipping;
+            }
+
+            // 上方訂單明細的數量跟價格
+            // 更新各個商品的數量和價格
+            for (let i = 1; i <= 3; i++) {
+                let quantity = localStorage.getItem(`number0${i}`);
+                let price = localStorage.getItem(`price0${i}`);
+
+                if (quantity) {
+                    document.getElementById(`quantity0${i}`).textContent = quantity;
+                }
+                if (price) {
+                    document.getElementById(`price0${i}`).textContent = price;
+                }
+            }
+
+            // 更新商品數量（如果需要的話）
+            for (let i = 1; i <= 3; i++) {
+                let quantity = localStorage.getItem(`number0${i}`);
+                if (quantity) {
+                    document.getElementById(`quantity0${i}`).textContent = quantity;
+                }
+            }
+
+            // 更新頁面上的元素
+            if (totalNumber && totalPrice && totalPriceWithShipping) {
+                document.getElementById('show_number_all').textContent = totalNumber;
+                document.getElementById('show_price01_all').textContent = totalPrice;
+                document.getElementById('show_price02_all').textContent = totalPriceWithShipping;
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,814 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TinTinFlash Co.-個性化專輯販賣所</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- 加網站logo在網頁 -->
+    <link rel="icon" href="./img/logo-02.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="./css/BS-store.css">
+    <style>
+        .carousel-img {
+            /* height: 800px; */
+            aspect-ratio: 16/9;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        h2,
+        h4 {
+            color: #f73c74;
+            font-weight: 600;
+        }
+
+        .my-circle {
+            width: 100px;
+            height: 100px;
+        }
+
+        .my-circle-artist-1 {
+            box-shadow: 0 0 15px rgba(247, 60, 116, 0.4);
+            background-image: url(./img/exo-logo.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .my-circle-artist-2 {
+            box-shadow: 0 0 15px rgba(247, 60, 116, 0.4);
+            background-image: url(./img/bts-logo.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .my-circle-artist-3 {
+            box-shadow: 0 0 15px rgba(247, 60, 116, 0.4);
+            background-image: url(./img/txt-logo.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .news-text {
+            color: #f73c74;
+            font-weight: 600;
+        }
+
+        .six-img {
+            width: 100%;
+        }
+
+        .four-card {
+            background-color: white;
+            box-shadow: 0 0 10px #eee;
+
+        }
+
+        .heart-box {
+            width: 24px;
+            height: 24px;
+            padding-top: 1px;
+        }
+
+        .star-width {
+            width: 80%;
+        }
+
+        .color-btn {
+            width: 20px;
+            height: 20px;
+            border: 1px solid gray;
+        }
+
+        .map {
+            background-color: white;
+        }
+
+        .my-signin {
+            width: 400px;
+            top: 50%;
+            left: 74%;
+            transform: translate(-50%, -50%);
+        }
+
+        .go-btn {
+            background-color: #f73c74;
+            font-weight: 600;
+            color: white;
+        }
+
+        @media (min-width:516px) {
+            .star-width {
+                width: 60%;
+            }
+        }
+
+        @media (min-width:768px) {
+            .star-width {
+                width: 80%;
+            }
+        }
+
+        @media (min-width:992px) {
+            .star-width {
+                width: 60%;
+            }
+        }
+
+        @media (max-width:850px) {
+            .my-signin {
+                width: 400px;
+                top: 50%;
+                left: 70%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        @media (max-width:768px) {
+            .my-signin {
+                width: 80%;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        /* 表格css */
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-white mb-0">
+        <div class="container-fluid">
+            <a class="navbar-brand mx-3" href="./BS-store.html"><img class="nav-img" src="./img/logo-02.svg" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-h active text-center" aria-current="page" href="./BS-store.html">Home</a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a class="nav-link nav-link-h" href="#">Portfolio</a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a class="nav-link nav-link-h" href="#">About</a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a class="nav-link nav-link-h" href="#">Contact</a>
+                    </li>
+                    <div class="row text-center">
+                        <div class="col-lg-3 col-6">
+                            <li class="nav-item">
+                                <a class="nav-link" href="./BS-shopping-chart-1.html"><i class="bi bi-cart4"></i></a>
+                            </li>
+                        </div>
+                        <div class="col">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <i class="bi bi-person-circle"></i>
+                                </a>
+                                <ul id="login" class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="./login.html">Login</a></li>
+                                </ul>
+                            </li>
+                        </div>
+
+                    </div>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="mb-sm-5">
+        <div id="carouselExampleIndicators" class="carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./img/header-img-1.jpg" class="carousel-img d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="./img/header-img-2.jpg" class="carousel-img d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="./img/header-img-3.webp" class="carousel-img d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="container mb-sm-5 px-3 px-sm-5 pb-5">
+        <!-- 三圓卡片 -->
+        <div class="row mx-2 mx-sm-auto mb-5">
+            <div class="col-0 px-0 px-sm-3 px-md-5 text-center">
+                <h2 class="mt-5 mb-4"><i class="bi bi-stars"></i> 看看介紹，再接著逛吧 <i class="bi bi-stars"></i></h2>
+                <p class="mb-5 px-0 px-sm-5">嗨~你終於發現我了呀！我們是TinTinFlash Co. —
+                    個性化專輯販賣所，專門販售各式專輯以及藝人周邊商品，歡迎你來探索挖寶，成為最專業的探險家！</p>
+            </div>
+            <div class="col-0 col-lg-3 text-center px-0 px-sm-3 px-md-5 px-lg-0 mb-3 mb-lg-5 mx-auto">
+                <div class="my-circle my-circle-artist-1 bg-secondary rounded-circle mx-auto mb-5"></div>
+                <h4>EXO</h4>
+                <p class="mb-3 px-0 px-sm-5 px-lg-0">為SM
+                    Entertainment 於2012年4月8日推出的韓國男子組合，<br> EXO的名稱為太陽系外行星（exoplanet）一詞中得來，寓意這個團體是「從未知星球來的新星」，現任成員包含
+                    Xiumin、Suho、Baekhyun、Chen、Chanyeol、D.O.、Kai、Sehun； <br>2018年，EXO
+                    成為2000年後出道的韓國歌手中，第一個在韓國國內專輯銷量突破1千萬的歌手。
+                </p>
+                <div class="learn-more">
+                    <p class="back-btn-text mb-5">Learn More <i class="back-btn-text bi bi-arrow-right"></i>
+                    </p>
+                </div>
+                <!-- <button type="button" class="btn btn-secondary">View details</button> -->
+            </div>
+            <div class="col-0 col-lg-3 text-center px-0 px-sm-3 px-md-5 px-lg-0 mb-3 mb-lg-5 mx-auto">
+                <div class="my-circle my-circle-artist-2 bg-secondary rounded-circle mx-auto mb-5"></div>
+                <h4>BTS</h4>
+                <p class="mb-3 px-0 px-sm-5 px-lg-0">成立於2010年的韓國男子組合，<br> 由 Jin、SUGA、j-hope、RM、Jimin、V、JungKook
+                    共7名成員組成；<br> 原本被定位為嘻哈團體的防彈少年團，現在音樂風格已經逐漸融合多種流派，而專輯和相關作品則參考文學、哲學和心理學概念，並包括平行時空的世界觀。
+                </p>
+                <div class="learn-more">
+                    <p class="back-btn-text mb-4 mb-lg-5">Learn More <i class="back-btn-text bi bi-arrow-right"></i>
+                    </p>
+                </div>
+                <button type="button" class="next-btn-btn btn-lg btn mb-5">
+                    <p class="next-btn-text mb-0">歷代專輯</p>
+                </button>
+            </div>
+            <div class="col-0 col-lg-3 text-center px-0 px-sm-3 px-md-5 px-lg-0 mb-3 mb-lg-5 mx-auto">
+                <div class="my-circle my-circle-artist-3 bg-secondary rounded-circle mx-auto mb-5"></div>
+                <h4>TXT</h4>
+                <p class="mb-3 px-0 px-sm-5 px-lg-0">為韓國 BIGHIT
+                    MUSIC 於2019年推出的男子音樂團體，<br> 由YEONJUN、SOOBIN、BEOMGYU、TAEHYUN、HUENINGKAI五位成員所組成， <br>團名寫作「TOMORROW X
+                    TOGETHER」，唸作「TOMORROW by TOGETHER」，其意為「互不相同的你我，為同一個夢想而相聚，攜手共創明天」。</p>
+                <div class="learn-more">
+                    <p class="back-btn-text mb-5">Learn More <i class="back-btn-text bi bi-arrow-right"></i>
+                    </p>
+                </div>
+                <!-- <button type="button" class="btn btn-secondary">View details</button> -->
+            </div>
+        </div>
+        <!-- 六塊圖區字 -->
+        <div class="row">
+            <div class="col-0 col-md-3 ms-0 ms-sm-5 p-0 my-auto">
+                <p class=" news-text ms-5 ms-sm-0 fs-2 mb-0">號外！是最新消息</p>
+            </div>
+            <div class="col m-5 p-0">
+                <p class="my-auto mb-0">這裡將定期彙整官方發佈的藝人相關資訊，點擊縮圖查看各個藝人、團體所發佈的最新資訊吧！</p>
+            </div>
+        </div>
+        <!-- 六塊圖區 -->
+        <div class="row mx-0 mx-sm-4">
+            <div class="col-6 p-sm-3 mb-5">
+                <div class="row">
+                    <div class="col-6 p-1">
+                        <img src="./img/six-img-3-02.jpg" class="six-img" alt="">
+                    </div>
+                    <div class="col-6 p-1">
+                        <img src="./img/six-img-4-02.jpg" class="six-img" alt="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 p-1">
+                        <img src="./img/six-img-1-01.jpg" class="six-img" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 p-sm-3 mb-5">
+                <div class="row">
+                    <div class="col-12 p-1">
+                        <img src="./img/six-img-5-01.jpg" class="six-img" alt="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 p-1">
+                        <img src="./img/six-img-6-02.jpg" class="six-img" alt="">
+                    </div>
+                    <div class="col-6 p-1">
+                        <img src="./img/six-img-7-02.jpg" class="six-img" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 表格區 -->
+        <div class="col-0 px-0 px-sm-3 px-md-5 text-center">
+            <h2 class="mt-5 mb-4">什麼時候可以收到呢？</h2>
+            <p class="mb-5 px-0 px-sm-5">
+                我們將根據官方所發佈的商品出貨日，以及我們實際收到周邊的日期，來預估商品送到您手中的排期，點擊查看更多商品的出貨資訊吧！<br>註：此為預計排程，我方出貨日期將依實際收貨狀況為準</p>
+        </div>
+        <div class="row mx-1 mx-md-5">
+            <div class="col-0 text-center">
+
+            </div>
+            <div class="col-0 p-0 p-md-5 text-center">
+                <table class="table">
+                    <thead>
+                        <tr class="thead-tr table-danger">
+                            <th scope="col">藝人</th>
+                            <th scope="col">品項</th>
+                            <th scope="col">出貨日</th>
+                            <th scope="col">收貨日</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        <tr>
+                            <th scope="row">EXO</th>
+                            <td>正規七輯</td>
+                            <td>2024 / 04 /12</td>
+                            <td>2024 / 05 /06</td>
+                            <td style="color: #f73c74; font-weight: 600;">已出貨</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Mark</th>
+                            <td>第二張solo專輯</td>
+                            <td>2024 / 01 /15</td>
+                            <td>2024 / 02 /24</td>
+                            <td style="color: #f73c74; font-weight: 600;">已出貨</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">EXO</th>
+                            <td>第三代-官方應援手燈</td>
+                            <td>2023 / 11 /21</td>
+                            <td>2024 / 06 /01</td>
+                            <td>理貨中</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">BTS</th>
+                            <td>官方手幅</td>
+                            <td>2023 / 09 /05</td>
+                            <td>2023 / 11 /21</td>
+                            <td style="color: #f73c74; font-weight: 600;">已出貨</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-0 px-0 px-md-5 text-center">
+                <div class="row">
+                    <div class="back-btn col text-start">
+                        <a class="icon-link icon-link-hover" href="#">
+                            <div class="learn-more">
+                                <p class="back-btn-text my-3 mb-5">出貨說明 <i class="back-btn-text bi bi-arrow-right"></i>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="next-btn col text-end">
+                        <a href="./BS-shopping-chart-1.html">
+                            <button type="button" class="next-btn-btn btn btn-lg px-4 px-sm-5">
+                                <p class="next-btn-text mb-0">更多商品</p>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- 四方卡片區 -->
+        <div class="row mt-5">
+            <div class="row">
+                <div class="col-0 col-md-3 ms-0 ms-sm-5 p-0 my-auto">
+                    <p class=" news-text ms-5 ms-sm-0 fs-2 mb-0">最新上架</p>
+                </div>
+                <div class="col m-5 p-0">
+                    <p class="my-auto mb-0">來看看我們上架了什麼新商品吧！欲購買限量商品務必手刀拿下，買了後悔三天，不買後悔三年呀！</p>
+                </div>
+            </div>
+        </div>
+        <div class="row mx-auto mb-5">
+            <div class="col-md-6 col-lg-3 p-3">
+                <div class="card four-card p-3 border-0">
+                    <img src="./img/four-cardjpg-04.jpg" class="card-img-top" alt="...">
+                    <div class="card-body p-0">
+                        <p class="mb-2">新上架</p>
+                        <h5 class="card-title">EXO PLANET 官方應援服</h5>
+                        <p class="card-text">SM STORE 推出的新一代官方應援服。<br>詳細資訊請點擊查看！</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 p-3">
+                <div class="card four-card p-3 border-0">
+                    <img src="./img/four-cardjpg-05.jpg" class="card-img-top" alt="...">
+                    <div class="card-body p-0">
+                        <p class="mb-2">新上架</p>
+                        <h5 class="card-title" style="color: #f73c74;">【限量商品】SeHun 官方貼紙</h5>
+                        <p class="card-text">SM STORE 推出EXO各成員的風格貼紙，此為限量商品，喜歡請手刀拿下！</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 p-3">
+                <div class="card four-card p-3 border-0">
+                    <img src="./img/four-cardjpg-03.jpg" class="card-img-top" alt="...">
+                    <div class="card-body p-0">
+                        <p class="mb-2">新上架</p>
+                        <h5 class="card-title" style="color: #f73c74;">【限時商品】SeHun 飯製鐵牌鑰匙圈</h5>
+                        <p class="card-text">微博勳吧製作的世勳鐵牌鑰匙圈，即日起開放現時預購！<br>預購日期：2024/06/17~2024/08/09</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 p-3">
+                <div class="card four-card p-3 border-0">
+                    <img src="./img/four-cardjpg-06.jpg" class="card-img-top" alt="...">
+                    <div class="card-body p-0">
+                        <p class="mb-2">新上架</p>
+                        <h5 class="card-title">EXO KoKoBop Photobook</h5>
+                        <p class="card-text">
+                            EXO KoKoBop Photobook 官方釋出通路再販，沒有跟上第一批販售可點擊查看並購買！
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </div>
+        <!-- 三圓文字區 -->
+        <div class="row">
+            <div class="row px-5 mx-auto mt-5">
+                <div class="row mx-auto">
+                    <div class="row mx-auto mb-2">
+                        <div class="col col-md-5 order-md-2 mx-auto my-auto">
+                            <img class="w-100" src="./img/text-3-1.jpg" alt="">
+                        </div>
+                        <div class="col-md-7 order-md-1 m-auto">
+                            <h4>Let Me In</h4>
+                            <p class="lead">EXO / 第七張正規專輯＂EXIST＂ 前導曲 — Let Me In
+                            </p>
+                            <div class="learn-more">
+                                <p class="back-btn-text mb-2">點擊收聽 <i class="back-btn-text bi bi-arrow-right"></i>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="px-5 mt-2">
+                </div>
+            </div>
+            <div class="row px-5 mx-auto">
+                <div class="row mx-auto">
+                    <div class="row mx-auto mb-2">
+                        <div class="col col-md-5 order-md- mx-auto my-auto">
+                            <img class="w-100" src="./img/text-3-2.jpg" alt="">
+                        </div>
+                        <div class="col-md-7 order-md-1 m-auto">
+                            <h4>Cream Soda</h4>
+                            <p class="lead">EXO / 第七張正規專輯＂EXIST＂ 主打歌 — Cream Soda
+                            </p>
+                            <div class="learn-more">
+                                <p class="back-btn-text mb-2">點擊收聽 <i class="back-btn-text bi bi-arrow-right"></i>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="px-5 mt-2">
+                </div>
+            </div>
+            <div class="row px-5 mx-auto">
+                <div class="row mx-auto">
+                    <div class="row mx-auto mb-2">
+                        <div class="col col-md-5 order-md-2 mx-auto my-auto">
+                            <img class="w-100" src="./img/text-3-3.jpg" alt="">
+                        </div>
+                        <div class="col-md-7 order-md-1 m-auto">
+                            <h4>EXO - EX'ACT</h4>
+                            <p class="lead">EXO / 第三張正規專輯 EX'ACT — 全專播放清單
+                            </p>
+                            <div class="learn-more">
+                                <p class="back-btn-text mb-2">點擊收聽 <i class="back-btn-text bi bi-arrow-right"></i>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="next-btn col text-center m-auto mb-5">
+                <a href="./BS-shopping-chart-2.html">
+                    <button type="button" class="next-btn-btn btn btn-lg px-5 my-3">
+                        <p class="next-btn-text mb-0">更多推薦歌曲</p>
+                    </button>
+                </a>
+            </div>
+        </div>
+        <!-- 大商品圖 -->
+        <div class="row mx-auto mb-2">
+            <div class="col col-md-5 order-md mx-auto my-auto">
+                <img class="w-100" src="./img/big-img-1.jpg" alt="">
+            </div>
+            <div class="col-md-7 order-md-1 m-auto">
+                <p class="my-2">精選專輯</p>
+                <h4>EXO / 第七張正規專輯＂EXIST＂(Photo Book Ver.)</h4>
+                <div class="row star-width px-2 mb-3">
+                    <div class="col-1 p-0 text-center">
+                        <i class="bi bi-star-fill" style="color: #ffaac3;"></i>
+                    </div>
+                    <div class="col-1 p-0 text-center">
+                        <i class="bi bi-star-fill" style="color: #ffaac3;"></i>
+                    </div>
+                    <div class="col-1 p-0 text-center">
+                        <i class="bi bi-star-fill" style="color: #ffaac3;"></i>
+                    </div>
+                    <div class="col-1 p-0 text-center">
+                        <i class="bi bi-star-fill" style="color: #ffaac3;"></i>
+                    </div>
+                    <div class="col-1 p-0 text-center">
+                        <i class="bi bi-star-half" style="color: #ffaac3;"></i>
+                    </div>
+                    <div class="col-3 p-0 text-start">
+                        <p class="ms-1 mb-0" style="color: #ffaac3;">8 評價</p>
+                    </div>
+                    <div class="col-1 p-0 text-center">
+                        <p class="me-3 mb-0">｜</p>
+                    </div>
+
+                    <div class="col-1 p-0 text-center">
+                        <i class="fa-brands left-icon fa-square-x-twitter"></i>
+                    </div>
+                    <div class="col-1 p-0 text-center">
+                        <i class="fa-brands left-icon fa-square-facebook"></i>
+                    </div>
+                    <div class="col-1 p-0 text-center">
+                        <i class="fa-brands left-icon fa-square-instagram"></i></i>
+                    </div>
+                </div>
+                <p class="lead">封面選項：<br>
+                    吳世勳 單封、金鍾仁 單封、邊伯賢 單封，共三款可挑。<br><br>
+
+                    ※ 外觀痕跡屬於產品製造過程正常產生現象，不屬瑕疵無法退換貨。<br><br>
+
+                    ● 以上資料為韓方提供,若有差異,請以官方資料與實際商品為準。<br>
+                    ● 購買avex代理進口版皆有列入韓國總銷售與 CIRCLE 排行榜、Hanteo 排行榜。
+                </p>
+
+                <div class="row align-items-center">
+                    <label for="color-btn" class="col-auto mb-0">版本</label>
+                    <input class="color-btn rounded-circle p-0 mx-1" style="background-color: #fff;" checked>
+                    <input class="color-btn rounded-circle p-0 mx-1" style="background-color: #f73c74;">
+                    <input class="color-btn rounded-circle p-0 mx-1" style="background-color: #29f0f0;">
+                    <p class="col-auto mb-0">封面</p>
+                    <select class="form-select col" aria-label="Default select example">
+                        <option value="1">吳世勳 單封</option>
+                        <option value="2">金鍾仁 單封</option>
+                        <option value="3">邊伯賢 單封</option>
+                    </select>
+                </div>
+
+                <hr>
+                <div class="row me-3">
+                    <div class="col my-auto text-start">
+                        <h4 class="mb-0">NT.412</h4>
+                    </div>
+                    <div class="col text-center">
+                        <div class="row">
+                            <div class="col">
+                                <a href="./BS-shopping-chart-1.html">
+                                    <button type="button" class="next-btn-btn btn btn-lg px-4 px-sm-5 px-md-4 px-lg-5 ">
+                                        <p class="next-btn-text mb-0">買他 !</p>
+                                    </button>
+                                </a>
+                            </div>
+                            <div class="col-1 text-center m-auto">
+                                <div class="heart-box rounded-circle" style="background-color: #f73c74;"><i
+                                        class="bi bi-suit-heart-fill" style="color: #ffaac3;"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 八圖區 -->
+        <div class="row mt-5">
+            <div class="row mx-auto mb-5">
+                <div class="col-md-6 col-lg-3 mt-4">
+                    <div class="card border-0" style="background-color: #fff; box-shadow: 0 0 15px #eee;">
+                        <img src="./img/eight-img-07.jpg" class="card-img-top" alt="...">
+                        <div class="card-body p-3">
+                            <p class="mb-2">編輯精選</p>
+                            <h5 class="card-title">Sing For You 鑰匙圈</h5>
+                            <p class="card-text">NT.204</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mt-4">
+                    <div class="card border-0" style="background-color: #fff; box-shadow: 0 0 15px #eee;">
+                        <img src="./img/eight-img-08.jpg" class="card-img-top" alt="...">
+                        <div class="card-body p-3">
+                            <p class="mb-2">編輯精選</p>
+                            <h5 class="card-title">Sing For You 太空鯨魚徽章</h5>
+                            <p class="card-text">NT.386</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mt-4">
+                    <div class="card border-0" style="background-color: #fff; box-shadow: 0 0 15px #eee;">
+                        <img src="./img/eight-img-09.jpg" class="card-img-top" alt="...">
+                        <div class="card-body p-3">
+                            <p class="mb-2">編輯精選</p>
+                            <h5 class="card-title">EXO Planet post cards</h5>
+                            <p class="card-text">NT.180</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mt-4">
+                    <div class="card border-0" style="background-color: #fff; box-shadow: 0 0 15px #eee;">
+                        <img src="./img/eight-img-10.jpg" class="card-img-top" alt="...">
+                        <div class="card-body p-3">
+                            <p class="mb-2">編輯精選</p>
+                            <h5 class="card-title">EXO UNIVERSE 羊毛圍巾</h5>
+                            <p class="card-text">NT.1323</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mt-4">
+                    <div class="card border-0" style="background-color: #fff; box-shadow: 0 0 15px #eee;">
+                        <img src="./img/eight-img-11.jpg" class="card-img-top" alt="...">
+                        <div class="card-body p-3">
+                            <p class="mb-2">編輯精選</p>
+                            <h5 class="card-title">EXO 第三代-官方應援手燈</h5>
+                            <p class="card-text">NT.1485</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mt-4">
+                    <div class="card border-0" style="background-color: #fff; box-shadow: 0 0 15px #eee;">
+                        <img src="./img/eight-img-12.jpg" class="card-img-top" alt="...">
+                        <div class="card-body p-3">
+                            <p class="mb-2">編輯精選</p>
+                            <h5 class="card-title">6th 專輯「OBSESSION」</h5>
+                            <p class="card-text">NT.558</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mt-4">
+                    <div class="card border-0" style="background-color: #fff; box-shadow: 0 0 15px #eee;">
+                        <img src="./img/eight-img-13.jpg" class="card-img-top" alt="...">
+                        <div class="card-body p-3">
+                            <p class="mb-2">編輯精選</p>
+                            <h5 class="card-title">正規改版專輯「LOTTO」</h5>
+                            <p class="card-text">NT.468</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mt-4">
+                    <div class="card border-0" style="background-color: #fff; box-shadow: 0 0 15px #eee;">
+                        <img src="./img/eight-img-14.jpg" class="card-img-top" alt="...">
+                        <div class="card-body p-3">
+                            <p class="mb-2">編輯精選</p>
+                            <h5 class="card-title">EXO 官方周邊組</h5>
+                            <p class="card-text">NT.436</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+    <!-- 地圖區 -->
+    <div class="map row position-relative container-fliud h-100 mx-auto">
+        <iframe class="my-3"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58337.590581711585!2d120.54953749879444!3d23.956924568951536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346936ef369aca59%3A0xfdfe864e58757723!2zNTEw5b2w5YyW57ij5ZOh5p6X5biC!5e0!3m2!1szh-TW!2stw!4v1718519433042!5m2!1szh-TW!2stw"
+            width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
+        <div class="card position-absolute mb-3 contact-card my-signin">
+            <div class="card-body">
+                <h5 class="card-title">Feedback</h5>
+                <p class="card-text mb-3">想說些什麼？寄信給我們吧！</p>
+                <div class="mb-3">
+                    <label for="validationDefault01" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="輸入您的電子信箱">
+                </div>
+                <div class="mb-3">
+                    <label for="validationDefault03" class="form-label">Message</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+                        placeholder="輸入您的訊息"></textarea>
+                </div>
+                <a href="#" class="btn next-btn-btn w-100">
+                    <p class="next-btn-text mb-0">送出</p>
+                </a>
+            </div>
+        </div>
+        <!-- action = 假裝送資料後連結到下一個頁面 -->
+
+    </div>
+
+
+
+    <footer class="container-fluid bg-white">
+
+        <div class="row p-4">
+            <div class="col-12 col-sm-4 col-md-4 col-lg-2 text-center">
+                <a class="navbar-brand mx-2" href="#"><img class="nav-img m-2" src="./img/logo-02.svg" alt=""></a>
+            </div>
+            <p class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 my-auto text-center footer-text ">That's Right My
+                Tight :D</p>
+            <div class="col-12 col-sm-2 text-center p-3">
+                <div class="row">
+                    <div class="col">
+                        <p class="footer-nav-text-1">歷代專輯</p>
+                        <p class="mb-0">正規七輯</p>
+                        <p class="mb-0">正規六輯</p>
+                        <p class="mb-0">正規五輯</p>
+                        <p class="mb-0">正規四輯</p>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-12 col-sm-2 text-center p-3">
+                <div class="row">
+                    <div class="col">
+                        <p class="footer-nav-text-1">成員介紹</p>
+                        <p class="mb-0">吳世勳</p>
+                        <p class="mb-0">金鍾仁</p>
+                        <p class="mb-0">邊伯賢</p>
+                        <p class="mb-0">We Are One</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-2 text-center p-3">
+                <div class="row">
+                    <div class="col">
+                        <p class="footer-nav-text-1">晚餐推薦</p>
+                        <p class="mb-0">菲力牛排</p>
+                        <p class="mb-0">沙朗牛排</p>
+                        <p class="mb-0">翼板牛排</p>
+                        <p class="mb-0">肋眼牛排</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-2 text-center p-3">
+                <div class="row">
+                    <div class="col">
+                        <p class="footer-nav-text-1">甜點精選</p>
+                        <p class="mb-0">戚風蛋糕</p>
+                        <p class="mb-0">千層蛋糕</p>
+                        <p class="mb-0">融心布朗尼</p>
+                        <p class="mb-0">薄巧冰淇淋</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <div class="footer-nav container-fluid p-3">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 ">
+                <div class="row mx-3">
+                    <a class="col-2 my-auto text-end" href="#"><i class="bi bi-c-circle"></i></a>
+                    <p class="col my-auto p-0 footer-nav-text">2024 TinTinFlash Co.</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6">
+                <div class="row mx-3">
+                    <a class="col-2 my-auto text-end" href="#"><i class="bi bi-at"></i></a>
+                    <p class="col my-auto p-0 footer-nav-text">tintinflash_1121</p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

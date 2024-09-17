@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap 連結 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- google fonts 連結 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+    <!-- font-awesome 連結 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- aos 連結 -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- 加網站logo在網頁 -->
+    <link rel="icon" href="./img/cloudy-day.png">
+    <title>天氣報報</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            background-color: lightblue;
+        }
+
+        h2{
+            font-weight: 600;
+            color: #15589c;
+        }
+
+        .nav-text{
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        .nav-text:hover{
+            color: #e33975;
+        }
+
+        nav{
+            height: 6rem;
+            box-shadow: 0 0 15px rgba(92, 123, 133, 0.464);
+        }
+
+        .my_card {
+            width: 14rem;
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(92, 123, 133, 0.464);
+            text-align: center;
+        }
+
+        .card_img{
+            padding-top: 30px;
+        }
+
+        .card-city {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .card-situation {
+            font-size: 20px;
+            font-weight: 600;
+            color: #15589c;
+        }
+
+        .card-temperature {
+            font-size: 24px;
+            font-weight: 600;
+            color: #e33975;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-white mb-5 px-3">
+        <div class="container-fluid">
+            <a class="navbar-brand mx-3" href="#">
+                <h2>天氣報報</h2>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item text-center">
+                        <a class="weather-btn nav-link nav-link-h showcity" data-area="allcitys" href="#"><p class="nav-text mb-0">全部地區</p></a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a class="weather-btn nav-link nav-link-h showcity" data-area="ncitys" href="#"><p class="nav-text mb-0">北部地區</p></a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a class="weather-btn nav-link nav-link-h showcity" data-area="ccitys" href="#"><p class="nav-text mb-0">中部地區</p></a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a class="weather-btn nav-link nav-link-h showcity" data-area="scitys" href="#"><p class="nav-text mb-0">南部地區</p></a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a class="weather-btn nav-link nav-link-h showcity" data-area="ecitys" href="#"><p class="nav-text mb-0">東部地區</p></a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a class="weather-btn nav-link nav-link-h showcity" data-area="ocitys" href="#"><p class="nav-text mb-0">離島地區</p></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid justify-content-center">
+        <div class="cards_show row col-auto row-cols-2 m-0 gap-4 justify-content-center" id="citys_weather">
+            <!-- 天氣卡片將動態插入此處 -->
+        </div>
+    </div>
+
+    <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- 天氣資訊api -->
+    <script>
+        callfetch();
+
+        function callfetch() {
+            fetch('https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWA-73FBB315-70B9-4498-8472-3545E24C0162')
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (item) {
+                    let allcitys = item.records.location;
+                    console.log(allcitys);
+                    btn_action(allcitys);
+                    cards_show(allcitys); // 顯示所有城市的初始狀態
+                });
+        };
+
+        let allcitys = ["嘉義縣", "新北市", "嘉義市", "新竹縣", "新竹市", "臺北市", "臺南市", "宜蘭縣", "苗栗縣", "雲林縣", "花蓮縣", "臺中市", "臺東縣", "桃園市", "南投縣", "高雄市", "金門縣", "屏東縣", "基隆市", "澎湖縣", "彰化縣", "連江縣",];
+
+        let ncitys = ["新北市", "新竹縣", "新竹市", "臺北市", "宜蘭縣", "桃園市", "基隆市",];
+
+        let ccitys = ["臺中市", "苗栗縣", "南投縣", "彰化縣", "雲林縣",];
+
+        let scitys = ["嘉義縣", "嘉義市", "臺南市", "高雄市", "屏東縣", "澎湖縣",];
+
+        let ecitys = ["花蓮縣", "臺東縣",];
+
+        let ocitys = ["金門縣", "連江縣",];
+
+        // 綁定按鈕
+        function btn_action(its) {
+            let area_btn = document.querySelectorAll('.weather-btn');
+            area_btn.forEach((btns) => {
+                btns.addEventListener('click', function () {
+                    if (btns.dataset.area == 'allcitys') {
+                        let citys_name = its.filter((city) => allcitys.includes(city.locationName));
+                        cards_show(citys_name);
+                    } else if (btns.dataset.area == 'ncitys') {
+                        let citys_name = its.filter((city) => ncitys.includes(city.locationName));
+                        cards_show(citys_name);
+                    } else if (btns.dataset.area == 'ccitys') {
+                        let citys_name = its.filter((city) => ccitys.includes(city.locationName));
+                        cards_show(citys_name);
+                    } else if (btns.dataset.area == 'scitys') {
+                        let citys_name = its.filter((city) => scitys.includes(city.locationName));
+                        cards_show(citys_name);
+                    } else if (btns.dataset.area == 'ecitys') {
+                        let citys_name = its.filter((city) => ecitys.includes(city.locationName));
+                        cards_show(citys_name);
+                    } else if (btns.dataset.area == 'ocitys') {
+                        let citys_name = its.filter((city) => ocitys.includes(city.locationName));
+                        cards_show(citys_name);
+                    }
+                });
+            });
+        };
+
+        function cards_show(citys_name) {
+            let cards_show = document.querySelector('#citys_weather');
+            let img = [];
+            cards_show.innerHTML = '';
+            citys_name.forEach((showitem) => {
+                let min_c = showitem.weatherElement[2].time[0].parameter;
+                let max_c = showitem.weatherElement[4].time[0].parameter;
+                let wx = showitem.weatherElement[0].time[0].parameter;
+                console.log(wx);
+                if (wx.parameterName == '晴天') {
+                    img = './img/big-sun.png';
+                } else if (wx.parameterName == '晴時多雲') {
+                    img = './img/clouds-and-sun.png';
+                } else if (wx.parameterName == '多雲時晴') {
+                    img = './img/clouds.png';
+                }else if (wx.parameterName == '多雲時陰') {
+                    img = './img/cloud.png';
+                } else if (wx.parameterName == '多雲' || wx.parameterName == '陰時多雲' || wx.parameterName == '陰天') {
+                    img = './img/cloudys.png';
+                } else if (wx.parameterName == '多雲時晴短暫陣雨' || wx.parameterName == '晴午後短暫雷陣雨' || wx.parameterName == '多雲時晴短暫雨' || wx.parameterName == '晴時多雲短暫陣雨' || wx.parameterName == '晴短暫陣雨' || wx.parameterName == '多雲短暫陣雨') {
+                    img = './img/rain.png';
+                } else if (wx.parameterName == '雷雨' || wx.parameterName == '雷陣雨') {
+                    img = './img/storm.png';
+                } else if (wx.parameterName == '陣雨' || wx.parameterName == '短暫雨' || wx.parameterName == '雨天') {
+                    img = './img/rains.png';
+                }
+                cards_show.innerHTML += `
+                <div class="my_card card col p-3">
+                    <img src="${img}" class="card-img-top card_img" style="width: 100px;margin: auto;" alt="...">
+                    <div class="card-body">
+                        <p class="card-city"> ${showitem.locationName}</p>
+                        <div class='row m-0 text-center'>
+                            <div  class='row col m-0'>
+                                <p class="col p-0">最低溫</p>
+                                <p class="col card-temperature p-0">${min_c.parameterName}°C</p>
+                            </div>
+                            <div  class='row col m-0'>
+                                <p class="col p-0">最高溫</p>
+                                <p class="col card-temperature p-0">${max_c.parameterName}°C</p>
+                            </div>
+                        </div>
+                        <p class="card-situation">${wx.parameterName}</p>
+                    </div>
+                </div>
+                `;
+            })
+        };
+    </script>
+    
+    <!-- aos動態網頁連結 -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>

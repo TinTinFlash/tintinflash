@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeBareBears</title>
+    <!-- 把style加到css -->
+    <link rel="stylesheet" href="./css/all.css">
+</head>
+
+<body>
+    <!-- 左邊nav，h100vh w366px，
+        margin auto
+        右邊container三張圖float
+        33%34%33% -->
+    <div class="nav">
+        <!-- 漢堡鍵 -->
+        <!-- label不占據一列(非區塊層級) -->
+        <!-- 控制輸入紀錄器(記錄你按下漢堡鍵) -->
+        <!-- hidden = 隱藏元素(把checkbox)隱藏 -->
+        <input type="checkbox" id="ham-switch" hidden>
+        <!-- 漢堡鍵本體 -->
+        <label for="ham-switch" class="ham-btn">
+            <div class="line line-1"></div>
+            <div class="line line-2"></div>
+            <div class="line line-3"></div>
+        </label>
+        <div class="logo"></div>
+        <div class="nav-btn-all">
+            <a href="https://webarebears.fandom.com/wiki/Grizzly_Bear" class="nav-btn" target="_blank">大大</a>
+            <a href="https://webarebears.fandom.com/wiki/Panda_Bear" class="nav-btn" target="_blank">胖達</a>
+            <a href="https://webarebears.fandom.com/wiki/Ice_Bear" class="nav-btn" target="_blank">阿極</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="content">
+            <div class="img img-1"></div>
+            <div class="img img-2"></div>
+            <div class="img img-3"></div>
+        </div>
+    </div>
+
+</body>
+
+</html>

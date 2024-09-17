@@ -1,0 +1,101 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: white;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+hr {
+  color: #f73c74;
+}
+
+/* nav */
+.nav-img {
+  width: 150px;
+}
+
+.navbar {
+  box-shadow: 0 3px 10px #eeeeee;
+}
+
+.nav-link-h:hover {
+  background-color: #ffaac3;
+  border-radius: 20px;
+  font-weight: 600;
+  margin-right: -1px;
+}
+
+/* .dropdown-menu:hover {
+    background-color: #ffaac3;
+
+} */
+
+.dropdown-item:hover {
+  background-color: #ffaac3;
+  font-weight: 600;
+}
+
+.container {
+  background-color: white;
+  /* box-shadow: 0 0 30px #f73c74; */
+}
+
+#login {
+  left: -50px;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+/* footer */
+.footer-01 {
+  background-color: #ffaac3;
+}
+
+.footer-nav {
+  background-color: #f73c74;
+}
+
+.footer-text {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.footer-nav-text {
+  color: white;
+}
+
+.footer-nav-text-1 {
+  color: #f73c74;
+  font-weight: 600;
+}
+
+.footer-text-all:hover{
+  color: white;
+  font-weight: 600;
+}
+
+.bi-behance {
+  color: white;
+}
+
+.bi-envelope {
+  color: white;
+}
+
+@media (max-width: 392px) {
+  .container {
+    padding: none;
+  }
+
+  .card-text {
+    width: auto;
+  }
+}

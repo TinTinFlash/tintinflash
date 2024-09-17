@@ -1,0 +1,499 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+}
+
+a {
+    /* a無法設定寬高 */
+    text-decoration: none;
+    color: black;
+}
+
+.nav {
+    width: 366px;
+    height: 100%;
+    background-image: url(../img-webarebears/325.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    float: left;
+    padding: 150px 50px;
+}
+
+@media (max-width:1230px) {
+    .nav {
+        width: 100%;
+        height: 100px;
+        float: none;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width:850px) {
+    .nav {
+        position: relative;
+    }
+
+}
+
+.logo {
+    width: 180px;
+    height: 180px;
+    background-image: url(../img-webarebears/logo-2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50px;
+    margin: auto;
+    margin-bottom: 60px;
+}
+
+@media (max-width:1230px) {
+    .logo {
+        width: 80px;
+        height: 80px;
+        border-radius: 30px;
+        float: left;
+        margin: 0;
+    }
+}
+
+@media (max-width:850px) {
+    .logo {
+        width: 70px;
+        height: 70px;
+        border-radius: 25px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.logo:hover {
+    transform: scale(1.2) rotateY(180deg);
+}
+
+@media (max-width:1230px) {
+    .logo:hover {
+        transform: scale(1.06) rotateY(180deg);
+    }
+}
+
+@media (max-width:850px) {
+    .logo:hover {
+        transform: translate(-50%, -50%) scale(1.1) rotateY(180deg);
+    }
+}
+
+.nav-btn-all {
+    width: 125px;
+    margin: auto;
+}
+
+@media (max-width:1230px) {
+    .nav-btn-all {
+        /* width: auto = 自動調整寬度 */
+        width: auto;
+        float: right;
+        margin: 0;
+        margin-top: 15px;
+    }
+}
+
+@media (max-width:850px) {
+    .nav-btn-all {
+        background-color: #ffffff;
+        width: 150px;
+        height: 216px;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        box-shadow: 3px 10px 15px rgba(0, 0, 0, 0.4);
+        /* 顯示模式:隱藏 */
+        display: none;
+        position: absolute;
+        left: 20px;
+        top: 100px;
+        padding-top: 10px;
+        margin-top: 0;
+    }
+}
+
+.nav-btn {
+    width: 100%;
+    height: 60px;
+    background-color: antiquewhite;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 60px;
+    border-radius: 15px;
+    float: left;
+    margin: 0 auto 25px;
+}
+
+@media (max-width:1230px) {
+    .nav-btn {
+        width: 120px;
+        height: 50px;
+        font-size: 28px;
+        line-height: 50px;
+        border-radius: 25px;
+        margin-left: 15px;
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width:850px) {
+    .nav-btn {
+        width: 80%;
+        height: 50px;
+        background-color: white;
+        color: rgb(78, 78, 78);
+        border-bottom: 2px solid rgb(78, 78, 78);
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        line-height: 50px;
+        float: left;
+        margin: 4px 10% 10px;
+        border-radius: 0;
+    }
+}
+
+.nav-btn:hover {
+    background-color: rgb(62, 62, 142);
+    color: white;
+    box-shadow: 0 3px 10px rgba(66, 66, 66, 0.4);
+    transform: scale(1.15);
+}
+
+@media (max-width:850px) {
+    .nav-btn:hover {
+        width: 100%;
+        background-color: white;
+        color: rgb(78, 78, 78);
+        border-bottom: 0;
+        box-shadow: 0 8px 8px rgba(78, 78, 78, 0.2);
+        margin: 12px 0 10px;
+        font-size: 28px;
+        line-height: 35px;
+        transform: scale(1);
+    }
+}
+
+.nav-btn:active {
+    background-color: rgb(216, 56, 32);
+    box-shadow: 0 0 15px rgb(255, 203, 175);
+}
+
+@media (max-width:850px) {
+    .nav-btn:active {
+        background-color: white;
+        box-shadow: 0 8px 8px rgba(255, 203, 175, 0.4);
+        color: rgb(216, 56, 32);
+    }
+}
+
+.container {
+    width: calc(100% - 366px);
+    height: 100%;
+    float: left;
+    padding-top: calc((100vh - 566px) / 2);
+}
+
+@media (max-width:1230px) {
+    .container {
+        width: 100%;
+        height: calc(100% - 100px);
+        padding: 50px 20px;
+    }
+}
+
+@media (max-width:850px) {
+    .container {
+        width: 100%;
+        height: calc(100% - 100px);
+        padding: 0;
+    }
+}
+
+.content {
+    width: 957px;
+    height: 566px;
+    margin: auto;
+}
+
+/* 記得:下方指令蓋上方指令，把1390px移到1230px上就正確了 */
+@media(max-width:1390px) {
+    .content {
+        width: 800px;
+        height: 566px;
+    }
+}
+
+@media (max-width:1230px) {
+    .content {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media (max-width:850px) {
+    .content {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.img {
+    width: calc((100% - 10px * 2) / 3);
+    height: 100%;
+    border-radius: 30px;
+    float: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    margin-right: 12px;
+}
+
+@media(max-width:1390px) {
+    .img {
+        width: auto;
+        height: calc(50% - 5px);
+        margin-right: 0;
+    }
+}
+
+@media (max-width:1230px) {
+    .img {
+        width: auto;
+        height: calc(50% - 5px);
+        float: left;
+        margin-right: 0;
+    }
+}
+
+@media (max-width:850px) {
+    .img {
+        width: 100%;
+        height: calc(100% / 3);
+        border-radius: 0px;
+    }
+}
+
+.img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 10px rgba(66, 66, 66, 0.586);
+}
+
+@media (max-width:1230px) {
+    .img:hover {
+        transform: scale(1.02);
+    }
+}
+
+@media (max-width:850px) {
+    .img:hover {
+        transform: scale(0.95);
+        box-shadow: 0 5px 10px rgba(66, 66, 66, 0.586);
+        border-radius: 20px;
+    }
+}
+
+.img-1 {
+    background-image: url(../img-webarebears/032.jpeg);
+    background-position-x: -230px;
+}
+
+@media(max-width:1390px) {
+    .img-1 {
+        width: 100%;
+        background-image: url(../img-webarebears/5963.jpg);
+        background-size: cover;
+        background-position: top;
+        background-position-y: -7px;
+        border-radius: 20px;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width:1230px) {
+    .img-1 {
+        width: 100%;
+        border-radius: 20px;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width:850px) {
+    .img-1 {
+        background-position-y: 0;
+        border-radius: 0;
+        margin-bottom: 0;
+    }
+}
+
+.img-2 {
+    background-image: url(../img-webarebears/77.jpg);
+    background-position: -80px;
+}
+
+@media(max-width:1390px) {
+    .img-2 {
+        width: calc(50% - 12px / 2);
+        background-position: center;
+        border-radius: 20px;
+        margin-right: 12px;
+    }
+}
+
+@media (max-width:1230px) {
+    .img-2 {
+        width: calc(50% - 12px / 2);
+        border-radius: 20px;
+        margin-right: 12px;
+    }
+}
+
+@media (max-width:850px) {
+    .img-2 {
+        width: 100%;
+        background-position: top;
+        border-radius: 0;
+        margin-right: 0;
+    }
+}
+
+.img-3 {
+    background-image: url(../img-webarebears/pic-3.jpg);
+    background-position: -300px;
+    margin-right: -12px;
+}
+
+@media(max-width:1390px) {
+    .img-3 {
+        width: calc(50% - 12px / 2);
+        background-position: top;
+        border-radius: 20px;
+        margin-right: 0;
+    }
+}
+
+@media (max-width:1230px) {
+    .img-3 {
+        width: calc(50% - 12px / 2);
+        background-position: top;
+        border-radius: 20px;
+        margin-right: 0;
+    }
+}
+
+@media (max-width:850px) {
+    .img-3 {
+        width: 100%;
+        background-position: top;
+        border-radius: 0;
+        margin-right: 0;
+    }
+}
+
+/* 漢堡鍵 */
+.ham-btn {
+    background-color: rgb(29, 37, 113);
+    width: 50px;
+    height: 50px;
+    border: 1px solid white;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.726);
+    margin-top: 15px;
+    /* label不占據一列(非區塊層級)，所以要加display */
+    display: block;
+    /* 所有線都相對於此 */
+    position: relative;
+}
+
+@media(max-width:3000px) {
+    .ham-btn {
+        display: none;
+    }
+}
+
+@media(max-width:850px) {
+    .ham-btn {
+        display: block;
+    }
+}
+
+.ham-btn:hover {
+    background-color: rgb(216, 56, 32);
+    transform: scale(1.05);
+}
+
+.ham-btn:active {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.726);
+}
+
+/* 空格代表後代 */
+.ham-btn .line {
+    background-color: white;
+    width: 73%;
+    height: 4px;
+    border-radius: 10px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* 讓動作在0.3s內完成 */
+    transition: 0.5s;
+}
+
+.ham-btn .line-1 {
+    top: 25%;
+}
+
+.ham-btn .line-2 {
+    top: 50%;
+}
+
+.ham-btn .line-3 {
+    top: 75%;
+}
+
+/* checked = 當漢堡鍵被點選(checked)時，
++ = 代表後面的第一個兄弟(.ham-btn)，做出反應 */
+#ham-switch:checked+.ham-btn .line-1 {
+    background-color: rgb(78, 78, 78);
+    /* 改變線的位置。移到中間 */
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+#ham-switch:checked+.ham-btn .line-2 {
+    background-color: rgb(78, 78, 78);
+    /* 隱藏第二條線 */
+    display: none;
+}
+
+#ham-switch:checked+.ham-btn .line-3 {
+    background-color: rgb(78, 78, 78);
+    /* 改變線的位置。移到中間 */
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(135deg);
+}
+
+/* checked = 當漢堡鍵被點選(checked)時，
+~ = 代表後面的兄弟(任選一個)，做出反應 */
+#ham-switch:checked~.nav-btn-all {
+    /* 讓它顯示出現 */
+    display: block;
+}
+
+#ham-switch:checked~.ham-btn {
+    background-color: white;
+}

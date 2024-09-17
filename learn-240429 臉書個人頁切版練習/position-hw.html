@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook 個人頁面切版練習</title>
+    <style>
+        body {
+            margin: 0;
+            height: 3000px;
+            background-color: rgb(245, 243, 253);
+        }
+
+        #nav {
+            width: 100%;
+            height: 50px;
+            background-color: rgb(220, 215, 250);
+            position: fixed;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            /* z-index = 圖層z軸層級 */
+            z-index: 9;
+        }
+
+        #nav-left {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            left: 20px;
+        }
+
+        #icon-fb {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-image: url(./svg/icon-fb.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #search {
+            width: 280px;
+            height: 50px;
+            background-color: rgb(245, 243, 253);
+            border-radius: 60px;
+            position: absolute;
+            left: 60px;
+        }
+
+        #icon-search {
+            width: 25px;
+            height: 25px;
+            background-image: url(./svg/icon-search.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            top: calc(50% - 25px / 2);
+            left: 13PX;
+        }
+
+        #text-search-facebook {
+            height: 16px;
+            line-height: 16px;
+            font-size: 16px;
+            color: #b5b5b6;
+            font-weight: normal;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            position: absolute;
+            top: calc(50% - 16px / 2);
+            left: 50px;
+        }
+
+        #nav-middle {
+            width: 500px;
+            height: 50px;
+            position: absolute;
+            left: calc(50% - 500px / 2);
+        }
+
+        #icon-home {
+            width: 40px;
+            height: 40px;
+            background-image: url(./svg/icon-home.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            left: 0;
+            top: 5px;
+        }
+
+        #icon-store {
+            width: 40px;
+            height: 40px;
+            background-image: url(./svg/icon-store.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            left: 150px;
+            top: 5px;
+        }
+
+        #icon-societies {
+            width: 40px;
+            height: 40px;
+            background-image: url(./svg/icon-societies.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            right: 150px;
+            top: 5px;
+        }
+
+        #icon-game {
+            width: 40px;
+            height: 40px;
+            background-image: url(./svg/icon-game.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            top: 5px;
+            right: 0;
+        }
+
+        #nav-right {
+            width: 200px;
+            height: 50px;
+            position: absolute;
+            right: 20px;
+        }
+
+        #icon-post {
+            width: 50px;
+            height: 50px;
+            background-color: #ac9ff6;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            right: 180px;
+        }
+
+        #post-svg {
+            width: 25px;
+            height: 25px;
+            background-image: url(./svg/icon-post.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            top: calc(50% - 25px / 2);
+            left: calc(50% - 25px / 2);
+
+        }
+
+        #icon-messenger {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(172, 159, 246);
+            border-radius: 50%;
+            position: absolute;
+            right: 120px;
+        }
+
+        #messenger-svg {
+            width: 25px;
+            height: 25px;
+            background-image: url(./svg/icon-messenger.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            top: calc(50% - 25px / 2);
+            left: calc(50% - 25px / 2);
+        }
+
+        #icon-notify {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(172, 159, 246);
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            right: 60px;
+        }
+
+        #notify-svg {
+            width: 25px;
+            height: 25px;
+            background-image: url(./svg/icon-notify.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            top: calc(50% - 25px / 2);
+            left: calc(50% - 25px / 2);
+        }
+
+        #notify-number {
+            width: 20px;
+            height: 20px;
+            background-color: rgb(239, 30, 30);
+            border-radius: 50%;
+            position: absolute;
+            top: -2px;
+            right: -2px;
+        }
+
+        #notify-number-number {
+            width: 7px;
+            height: 15px;
+            line-height: 16px;
+            font-size: 12px;
+            color: white;
+            font-weight: bold;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            position: absolute;
+            top: calc(50% - 15px / 2);
+            left: calc(50% - 7px / 2);
+
+        }
+
+        #icon-account {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(255, 0, 187);
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        #account-svg {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(172, 159, 246);
+            background-image: url(./img/avatar01.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 50%;
+            position: absolute;
+            top: calc(50% - 50px / 2);
+            left: calc(50% - 50px / 2);
+
+        }
+
+        #account-drop-down-menu {
+            width: 15px;
+            height: 15px;
+            background-color: rgb(172, 159, 246);
+            border: 3px solid rgb(220, 215, 250);
+            border-radius: 50%;
+            background-image: url(./svg/acount-drop-down-menu.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            right: -3px;
+            bottom: -3px;
+
+        }
+
+        #all {
+            background-color: white;
+            width: 70%;
+            height: 3000px;
+            /* 置中 */
+            margin: auto;
+            /* padding-top 讓nav不要遮住all的內容 */
+            padding-top: 55px;
+        }
+
+        #banner {
+            width: 100%;
+            height: 450px;
+            background-color: blue;
+            border-radius: 10px;
+            /* background-image = 背景圖片  */
+            background-image: url(./img/553.png);
+            /* background-repeat: no-repeat 背景圖片不重複 */
+            background-repeat: no-repeat;
+            /* background-size: cover 背景圖片覆蓋整個範圍 */
+            background-size: cover;
+            position: relative;
+        }
+
+        #avatar {
+            background-color: rgb(142, 142, 142);
+            width: 180px;
+            height: 180px;
+            border: 3px solid white;
+            /* 倒圓角 */
+            border-radius: 50%;
+            background-image: url(./img/avatar01.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            bottom: -145px;
+            left: 50px;
+        }
+
+        #camera {
+            width: 35px;
+            height: 35px;
+            background-color: rgb(172, 159, 246);
+            border-radius: 50%;
+            position: absolute;
+            right: 5px;
+            bottom: 5px;
+        }
+
+        #camera-icon-camera {
+            width: 25px;
+            height: 25px;
+            background-image: url(./svg/camera.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            top: calc(50% - 25px / 2 - 1px);
+            left: calc(50% - 25px / 2);
+        }
+
+        #name {
+            width: 120px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 30px;
+            font-weight: bold;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            position: absolute;
+            bottom: -60px;
+            left: 250px;
+        }
+
+        #friend-1 {
+            width: 100px;
+            height: 20px;
+            line-height: 20px;
+            font-size: 16px;
+            color: #a6a5a5;
+            font-weight: bold;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            position: absolute;
+            bottom: -89px;
+            left: 250px;
+        }
+
+        #friend-2 {
+            width: 120px;
+            height: 35px;
+            position: absolute;
+            bottom: -133px;
+            left: 250px;
+        }
+
+        #f-icon-1 {
+            width: 35px;
+            height: 35px;
+            background-color: blueviolet;
+            border: 2px solid white;
+            border-radius: 50%;
+            background-image: url(./img/f1.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 5;
+        }
+
+        #f-icon-2 {
+            width: 35px;
+            height: 35px;
+            background-color: rgb(75, 20, 185);
+            border: 2px solid white;
+            border-radius: 50%;
+            background-image: url(./img/f2.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            left: 30px;
+            top: 0;
+            z-index: 4;
+        }
+
+        #f-icon-3 {
+            width: 35px;
+            height: 35px;
+            background-color: rgb(47, 27, 66);
+            border: 2px solid white;
+            border-radius: 50%;
+            background-image: url(./img/f3.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            left: 60px;
+            top: 0;
+            z-index: 3;
+        }
+
+        #f-icon-4 {
+            width: 35px;
+            height: 35px;
+            background-color: rgb(199, 170, 226);
+            border: 2px solid white;
+            border-radius: 50%;
+            background-image: url(./img/f4.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            left: 90px;
+            top: 0;
+            z-index: 2;
+        }
+
+        #f-icon-5 {
+            width: 35px;
+            height: 35px;
+            background-color: #a489be;
+            border: 2px solid white;
+            border-radius: 50%;
+            background-image: url(./img/f5.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            left: 120px;
+            top: 0;
+            z-index: 1;
+        }
+
+        #editpic {
+            width: 160px;
+            height: 45px;
+            background-color: rgb(172, 159, 246);
+            border-radius: 8px;
+            position: absolute;
+            right: 30px;
+            bottom: 10px;
+        }
+
+        #icon-camera {
+            width: 23px;
+            height: 23px;
+            background-image: url(./svg/camera.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            top: 10px;
+            left: 13px;
+        }
+
+        #text-editpic {
+            height: 18px;
+            line-height: 18px;
+            font-size: 18px;
+            color: white;
+            font-weight: bold;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            position: absolute;
+            top: 13px;
+            right: 13px;
+        }
+
+        #updates {
+            width: 180px;
+            height: 45px;
+            background-color: rgb(172, 159, 246);
+            position: absolute;
+            right: 270px;
+            bottom: -140px;
+            border-radius: 8px;
+        }
+
+        #icon-updates {
+            width: 23px;
+            height: 23px;
+            background-image: url(./svg/icon-updates.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            top: calc(50% - 23px / 2);
+            left: 13px;
+        }
+
+        #text-updates {
+            line-height: 23px;
+            font-size: 18px;
+            color: white;
+            font-weight: bold;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            position: absolute;
+            top: calc(50% - 23px / 2);
+            right: 13px;
+        }
+
+        #editfile {
+            width: 160px;
+            height: 45px;
+            background-color: #cccccc;
+            position: absolute;
+            right: 100px;
+            bottom: -140px;
+            border-radius: 8px;
+        }
+
+        #icon-editfile {
+            width: 20px;
+            height: 20px;
+            background-image: url(./svg/icon-editfile.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            top: calc(50% - 23px / 2);
+            left: 13px;
+        }
+
+        #text-editfile {
+            line-height: 23px;
+            font-size: 18px;
+            color: #3E3A39;
+            font-weight: bold;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            position: absolute;
+            top: calc(50% - 23px / 2);
+            right: 13px;
+        }
+
+        #drop-down-menu {
+            width: 60px;
+            height: 45px;
+            background-color: #cccccc;
+            position: absolute;
+            right: 30px;
+            bottom: -140px;
+            border-radius: 8px;
+        }
+
+        #icon-drop-down-menu {
+            width: 23px;
+            height: 23px;
+            background-image: url(./svg/drop-down-menu.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            top: calc(50% - 23px / 2);
+            left: calc(50% - 23px / 2);
+        }
+        #line{
+            width: 95%;
+            margin: auto;
+            padding-top: 160px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- nav = 導覽列 -->
+    <div id="nav">
+        <div id="nav-left">
+            <div id="icon-fb"></div>
+            <div id="search">
+                <div id="icon-search"></div>
+                <div id="text-search-facebook">搜尋 facebook</div>
+            </div>
+        </div>
+        <div id="nav-middle">
+            <div id="icon-home"></div>
+            <div id="icon-store"></div>
+            <div id="icon-societies"></div>
+            <div id="icon-game"></div>
+        </div>
+        <div id="nav-right">
+            <div id="icon-post">
+                <div id="post-svg"></div>
+            </div>
+            <div id="icon-messenger">
+                <div id="messenger-svg"></div>
+            </div>
+            <div id="icon-notify">
+                <div id="notify-svg"></div>
+                <div id="notify-number">
+                    <div id="notify-number-number">3</div>
+                </div>
+            </div>
+            <div id="icon-account">
+                <div id="account-svg">
+                    <div id="account-drop-down-menu"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="all">
+        <!-- banner = 區塊 -->
+        <div id="banner">
+            <!-- avatar = 人像 -->
+            <div id="avatar">
+                <div id="camera">
+                    <div id="camera-icon-camera"></div>
+                </div>
+            </div>
+            <div id="name">伊莉莎白</div>
+            <div id="friend-1">2026位朋友</div>
+            <div id="friend-2">
+                <div id="f-icon-1"></div>
+                <div id="f-icon-2"></div>
+                <div id="f-icon-3"></div>
+                <div id="f-icon-4"></div>
+                <div id="f-icon-5"></div>
+            </div>
+            <div id="editpic">
+                <div id="icon-camera"></div>
+                <div id="text-editpic">編輯封面相片</div>
+            </div>
+            <div id="updates">
+                <div id="icon-updates"></div>
+                <div id="text-updates">新增到限時動態</div>
+            </div>
+            <div id="editfile">
+                <div id="icon-editfile"></div>
+                <div id="text-editfile">編輯個人檔案</div>
+            </div>
+            <div id="drop-down-menu">
+                <div id="icon-drop-down-menu"></div>
+            </div>
+        </div>
+        <div id="line">
+            <hr style="background-color: #ac9ff6; height: 1px; border: none;"/>
+        </div>
+    </div>
+
+</body>
+
+</html>
