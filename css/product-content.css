@@ -86,3 +86,27 @@ h2{
     width: 60%;
   }
 }
+
+@media (min-width: 560px) {
+  .video-h{
+      height: 315px;
+  }
+}
+
+@media (min-width: 768px) {
+  .video-h{
+      height: 432px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .video-h{
+      height: 609px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .video-h{
+      height: 812px;
+  }
+}
