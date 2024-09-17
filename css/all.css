@@ -64,6 +64,10 @@ hr {
   background-color: #f73c74;
 }
 
+.footer-img{
+  height: 150px;
+}
+
 .footer-text {
   font-weight: 600;
   color: #ffffff;
